@@ -6,4 +6,11 @@ namespace r2d2::plant_rescue_system {
         : base_module_c(comm), moisture_sensor(moisture_sensor) {
     }
 
+    void plant_heath_monitor_c::process() {
+    }
+
+    uint8_t plant_heath_monitor_c::get_value() {
+        return moisture_sensor.get_value();
+    }
+
 } // namespace r2d2::plant_rescue_system

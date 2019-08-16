@@ -10,8 +10,8 @@ namespace r2d2::plant_rescue_system {
      */
     class moisture_sensor_c {
         hwlib::adc &sensor_pin;
-        constexpr static uint8_t adc_voltage = 3;
-        constexpr static uint16_t max_adc_value = 4096 / 5 * adc_voltage;
+        constexpr static uint16_t max_value = 3504;
+        constexpr static uint16_t min_value = 1791;
 
     public:
         moisture_sensor_c(hwlib::adc &sensor_pin);
