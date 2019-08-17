@@ -7,22 +7,34 @@
 namespace r2d2::plant_rescue_system {
 
     /**
-     * Class
+     * Class plant_health_monitor_c is Association from moisture sensor.
+     * diferend sensor can be implemented in this class to get a clear status of
+     * the health of a plant.
      */
-    class plant_heath_monitor_c : public base_module_c {
+    class plant_health_monitor_c : public base_module_c {
 
     private:
+        // moisture sensor
         moisture_sensor_c &moisture_sensor;
 
-        // canbus frames
+        // canbus frame
         frame_plant_health_s moisture_percentage;
 
     public:
-        plant_heath_monitor_c(base_comm_c &comm,
-                              moisture_sensor_c &moisture_sensor);
+        plant_health_monitor_c(base_comm_c &comm,
+                               moisture_sensor_c &moisture_sensor);
 
+        /**
+         * @brief
+         * This function write the persentage of moisture to the canbus every
+         * second.
+         */
         void process() override;
 
+        /**
+         * This function will call the get_value function of the moisture
+         * sensor. it return a value in persentage.
+         */
         uint8_t get_value();
     };
 } // namespace r2d2::plant_rescue_system

@@ -15,8 +15,8 @@ int main(void) {
     auto moisture_sensor =
         r2d2::plant_rescue_system::moisture_sensor_c(pin_adc);
 
-    auto plant =
-        r2d2::plant_rescue_system::plant_heath_monitor_c(comm, moisture_sensor);
+    auto plant = r2d2::plant_rescue_system::plant_health_monitor_c(
+        comm, moisture_sensor);
 
     for (;;) {
         plant.process();
