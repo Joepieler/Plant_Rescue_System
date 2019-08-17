@@ -7,6 +7,8 @@ namespace r2d2::plant_rescue_system {
     }
 
     void plant_heath_monitor_c::process() {
+        comm.send(get_value());
+        hwlib::wait_ms(1000);
     }
 
     uint8_t plant_heath_monitor_c::get_value() {

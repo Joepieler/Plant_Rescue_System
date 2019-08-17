@@ -19,7 +19,6 @@ int main(void) {
         r2d2::plant_rescue_system::plant_heath_monitor_c(comm, moisture_sensor);
 
     for (;;) {
-        hwlib::cout << plant.get_value() << " - " << pin_adc.read() << '\n';
-        hwlib::wait_ms(1000);
+        plant.process();
     }
 }
