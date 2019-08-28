@@ -14,15 +14,25 @@ namespace r2d2::plant_rescue_system {
     class plant_health_monitor_c : public base_module_c {
 
     private:
+        // plant values
+        constexpr static uint8_t ideal_moisture_persentage = 35;
+        constexpr static uint8_t max_deviation = 10;
+
         // moisture sensor
-        moisture_sensor_c &moisture_sensor;
+        moisture_sensor_c moisture_sensor;
+
+        // leds for ledstatus
+        hwlib::pin_out &led_green;
+        hwlib::pin_out &led_red;
 
         // canbus frame
         frame_plant_health_s moisture_percentage;
 
     public:
         plant_health_monitor_c(base_comm_c &comm,
-                               moisture_sensor_c &moisture_sensor);
+                               moisture_sensor_c &moisture_sensor,
+                               hwlib::pin_out &led_green,
+                               hwlib::pin_out &led_red);
 
         /**
          * @brief
@@ -35,5 +45,11 @@ namespace r2d2::plant_rescue_system {
          * sensor. it return a value in persentage.
          */
         uint8_t get_value();
+
+        /**
+         * updates status leds
+         *
+         */
+        void update_led();
     };
 } // namespace r2d2::plant_rescue_system
