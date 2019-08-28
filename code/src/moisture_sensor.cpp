@@ -11,6 +11,9 @@ namespace r2d2::plant_rescue_system {
         uint16_t value = sensor_pin.read() - min_value;
         value = 100 * value / (max_value - min_value);
         value = 100 - value;
+        if (value > 100) {
+            value = 100;
+        }
         return value;
     }
 } // namespace r2d2::plant_rescue_system
