@@ -8,7 +8,7 @@ namespace r2d2::plant_rescue_system {
 
     /**
      * Class plant_health_monitor_c is Association from moisture sensor.
-     * differend sensor can be implemented in this class to get a clear status
+     * different sensor can be implemented in this class to get a clear status
      * of the health of a plant.
      */
     class plant_health_monitor_c : public base_module_c {
@@ -26,13 +26,13 @@ namespace r2d2::plant_rescue_system {
 
         /**
          * @brief
-         * This main fucntion of this class.
+         * This main function of this class.
          */
         void process() override;
 
         /**
          * This function will call the get_value function of the moisture
-         * sensor. it return a value in persentage.
+         * sensor. it returns a value in percentage.
          */
         uint8_t get_value();
     };
