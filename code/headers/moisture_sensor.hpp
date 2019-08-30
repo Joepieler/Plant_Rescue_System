@@ -23,7 +23,7 @@ namespace r2d2::plant_rescue_system {
         moisture_sensor_c(hwlib::adc &sensor_pin);
 
         /**
-         * This function will return a value of the moisture persentage in the
+         * This function will return a value of the moisture percentage in the
          *soil. 0 is dry and 100 is wet.
          *
          **/

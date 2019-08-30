@@ -6,7 +6,7 @@ namespace r2d2::plant_rescue_system {
     }
 
     uint8_t moisture_sensor_c::get_value() {
-        // calculation from a adc to a persentage.
+        // calculation from a adc to a percentage.
         // 0 is dry and 100 is wet.
         uint16_t value = sensor_pin.read() - min_value;
         value = 100 * value / (max_value - min_value);
